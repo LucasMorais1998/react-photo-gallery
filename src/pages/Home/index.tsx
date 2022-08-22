@@ -1,10 +1,12 @@
+import Header from "../../components/Header";
+
 import { Container, MainContent } from "./styles";
 
 const Home = () => {
   return (
     <Container>
       <MainContent>
-        <h1>Home</h1>
+        <Header />
       </MainContent>
     </Container>
   );
