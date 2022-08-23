@@ -11,3 +11,33 @@ export const MainContent = styled.main`
   max-width: 980px;
   padding: 30px 0;
 `;
+
+export const ScreenWarning = styled.div`
+  text-align: center;
+
+  .loading-icon {
+    font-size: 3.125rem;
+    margin-bottom: 1.25rem;
+    animation: rotation 1.7s infinite linear;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+  .no-photos-icon {
+    font-size: 3.125rem;
+    margin-bottom: 1.25rem;
+  }
+`;
+
+export const PhotoListGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.625rem;
+`;
