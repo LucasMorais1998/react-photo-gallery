@@ -1,3 +1,5 @@
+import * as Photos from '../../services/photos';
+
 import Header from "../../components/Header";
 
 import { Container, MainContent } from "./styles";
