@@ -38,6 +38,8 @@ export const insert = async (file: File) => {
 
     return { name: upload.ref.name, url: photoURL } as Photo;
   } else {
-    return new Error("Tipo de arquivo não permitido.");
+    return new Error(
+      `Arquivo não permitido - Tipos permitidos: .jpeg, .jpg, .png`
+    );
   }
 };
