@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FiCameraOff } from "react-icons/fi";
@@ -14,6 +14,7 @@ import UploadForm from "../../components/UploadForm";
 import { Container, MainContent, PhotoListGrid, ScreenWarning } from "./styles";
 
 const Home = () => {
+  const [isUploading, setIsUploading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState<Photo[]>([]);
 
@@ -29,12 +30,37 @@ const Home = () => {
     getPhotos();
   }, []);
 
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formDate = new FormData(e.currentTarget);
+    const file = formDate.get("image") as File;
+
+    if (file && file.size > 0) {
+      setIsUploading(true);
+
+      let result = await Photos.insert(file);
+
+      setIsUploading(false);
+
+      if (result instanceof Error) {
+        alert({ name: result.name, err: result.message });
+      } else {
+        let newPhotoList = [...photos];
+
+        newPhotoList.push(result);
+
+        setPhotos(newPhotoList);
+      }
+    }
+  };
+
   return (
     <Container>
       <MainContent>
         <Header />
 
-        <UploadForm />
+        <UploadForm onSubmitForm={handleFormSubmit} isUploading={isUploading} />
 
         {isLoading && (
           <ScreenWarning>
