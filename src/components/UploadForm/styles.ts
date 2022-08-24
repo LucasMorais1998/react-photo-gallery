@@ -54,7 +54,7 @@ export const Container = styled.form`
     input[type="submit"] {
       font-size: 0.938rem;
       cursor: pointer;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
       transition: opacity ease 1s;
 
       &:hover {

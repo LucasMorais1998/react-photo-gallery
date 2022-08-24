@@ -22,7 +22,6 @@ const UploadForm = ({ onSubmitForm, isUploading }: IUploadFormProps) => {
         <input id="inputSubmit" type="submit" value="Enviar" />
       </label>
 
-
       {isUploading && (
         <LoadingContainer>
           <AiOutlineLoading3Quarters className="loading-icon" />
