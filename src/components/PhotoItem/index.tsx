@@ -8,7 +8,8 @@ interface IPhotoItemProps {
 const PhotoItem = ({ name, url }: IPhotoItemProps) => {
   return (
     <Container>
-      <h1>PhotoItem</h1>
+      <img src={url} alt={name} />
+      <span>{name}</span>
     </Container>
   );
 };
