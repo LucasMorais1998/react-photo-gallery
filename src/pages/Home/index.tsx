@@ -44,7 +44,7 @@ const Home = () => {
       setIsUploading(false);
 
       if (result instanceof Error) {
-        alert({ name: result.name, err: result.message });
+        alert(`${result.message}`);
       } else {
         let newPhotoList = [...photos];
 
