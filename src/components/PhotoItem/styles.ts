@@ -4,7 +4,7 @@ export const Container = styled.div`
   background-color: var(--gray-color);
   border-radius: 0.625rem;
   padding: 0.625rem;
-  
+
   max-height: 12rem;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,6 @@ export const Container = styled.div`
 
   span {
     text-align: center;
-    letter-spacing: 1px;
+    font-size: 0.625rem;
   }
 `;
