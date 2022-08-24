@@ -8,6 +8,7 @@ import * as Photos from "../../services/photos";
 import { Photo } from "../../@types/Photo";
 
 import Header from "../../components/Header";
+import PhotoItem from "../../components/PhotoItem";
 
 import { Container, MainContent, PhotoListGrid, ScreenWarning } from "./styles";
 
@@ -42,14 +43,18 @@ const Home = () => {
         {!isLoading && photos.length > 0 && (
           <PhotoListGrid>
             {photos.map((photo, index) => (
-              <div>{photo.name}</div>
+              <PhotoItem 
+                key={index} 
+                name={photo.name} 
+                url={photo.url} 
+              />
             ))}
           </PhotoListGrid>
         )}
 
         {!isLoading && photos.length === 0 && (
           <ScreenWarning>
-            <FiCameraOff className="no-photos-icon"/>
+            <FiCameraOff className="no-photos-icon" />
             <div>Não há fotos cadastradas.</div>
           </ScreenWarning>
         )}
