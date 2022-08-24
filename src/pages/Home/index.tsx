@@ -9,6 +9,7 @@ import { Photo } from "../../@types/Photo";
 
 import Header from "../../components/Header";
 import PhotoItem from "../../components/PhotoItem";
+import UploadForm from "../../components/UploadForm";
 
 import { Container, MainContent, PhotoListGrid, ScreenWarning } from "./styles";
 
@@ -33,6 +34,8 @@ const Home = () => {
       <MainContent>
         <Header />
 
+        <UploadForm />
+
         {isLoading && (
           <ScreenWarning>
             <AiOutlineLoading3Quarters className="loading-icon" />
@@ -43,11 +46,7 @@ const Home = () => {
         {!isLoading && photos.length > 0 && (
           <PhotoListGrid>
             {photos.map((photo, index) => (
-              <PhotoItem 
-                key={index} 
-                name={photo.name} 
-                url={photo.url} 
-              />
+              <PhotoItem key={index} name={photo.name} url={photo.url} />
             ))}
           </PhotoListGrid>
         )}
