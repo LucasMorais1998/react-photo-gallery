@@ -19,16 +19,16 @@ const Home = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
 
   useEffect(() => {
-    const getPhotos = async () => {
-      setIsLoading(true);
-
-      setPhotos(await Photos.getAll());
-
-      setIsLoading(false);
-    };
-
     getPhotos();
   }, []);
+
+  const getPhotos = async () => {
+    setIsLoading(true);
+
+    setPhotos(await Photos.getAll());
+
+    setIsLoading(false);
+  };
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,6 +55,11 @@ const Home = () => {
     }
   };
 
+  const handleDeleteClick = async (name: string) => {
+    await Photos.deletePhoto(name);
+    getPhotos();
+  };
+
   return (
     <Container>
       <MainContent>
@@ -72,7 +77,12 @@ const Home = () => {
         {!isLoading && photos.length > 0 && (
           <PhotoListGrid>
             {photos.map((photo, index) => (
-              <PhotoItem key={index} name={photo.name} url={photo.url} />
+              <PhotoItem
+                key={index}
+                name={photo.name}
+                url={photo.url}
+                onDelete={handleDeleteClick}
+              />
             ))}
           </PhotoListGrid>
         )}
