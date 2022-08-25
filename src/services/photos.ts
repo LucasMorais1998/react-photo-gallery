@@ -1,4 +1,10 @@
-import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+import {
+  deleteObject,
+  getDownloadURL,
+  listAll,
+  ref,
+  uploadBytes,
+} from "firebase/storage";
 
 import { v4 as createId } from "uuid";
 
@@ -42,4 +48,10 @@ export const insert = async (file: File) => {
       `Arquivo não permitido - Tipos permitidos: .jpeg, .jpg, .png`
     );
   }
+};
+
+export const deletePhoto = async (name: string) => {
+  let photoRef = ref(storage, `images/${name}`);
+
+  await deleteObject(photoRef);
 };
