@@ -68,6 +68,16 @@ export const GlobalStyle = createGlobalStyle`
       letter-spacing: .05rem;
       text-transform: uppercase;
       text-shadow: 2px 0px 6px rgba(0, 0, 0, 0.5);
+
+      span:nth-child(1) { 
+        color: var(--red-color);
+        text-transform: uppercase;
+      }
+
+      span:nth-child(3), 
+      span:nth-child(5) {
+        text-transform: none;
+      }
     }
 
     .react-modal-close {
@@ -125,9 +135,5 @@ export const GlobalStyle = createGlobalStyle`
         }
       }
     }
-  }
-
-  
-
-  
+  } 
 `;
