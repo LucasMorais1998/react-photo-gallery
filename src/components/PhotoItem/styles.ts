@@ -4,11 +4,10 @@ export const Container = styled.div`
   background-color: var(--gray-color);
   border-radius: 0.625rem;
   padding: 0.625rem;
-
   max-height: 12rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  
 
   img {
     width: 100%;
@@ -18,8 +17,27 @@ export const Container = styled.div`
     object-fit: cover;
   }
 
-  span {
-    text-align: center;
-    font-size: 0.625rem;
+  .photo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+
+    span {
+      text-align: center;
+      font-size: 0.625rem;
+    }
+
+    .photo-item-delete-icon {
+      font-size: 1.25rem;
+      color: var(--purple-color);
+      opacity: 0.6;
+      cursor: pointer;
+      transition: opacity ease 2ms;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 `;
