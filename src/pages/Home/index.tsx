@@ -1,5 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 
+import Modal from "react-modal";
+
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FiCameraOff } from "react-icons/fi";
 
@@ -13,10 +15,13 @@ import UploadForm from "../../components/UploadForm";
 
 import { Container, MainContent, PhotoListGrid, ScreenWarning } from "./styles";
 
+Modal.setAppElement("#root");
+
 const Home = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState<Photo[]>([]);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   useEffect(() => {
     getPhotos();
@@ -57,7 +62,18 @@ const Home = () => {
 
   const handleDeleteClick = async (name: string) => {
     await Photos.deletePhoto(name);
+
+    handleCloseDeleteModal();
+
     getPhotos();
+  };
+
+  const handleOpenDeleteModal = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -82,6 +98,9 @@ const Home = () => {
                 name={photo.name}
                 url={photo.url}
                 onDelete={handleDeleteClick}
+                isOpen={isDeleteModalOpen}
+                onOpenDeleteModal={handleOpenDeleteModal}
+                onRequestClose={handleCloseDeleteModal}
               />
             ))}
           </PhotoListGrid>
