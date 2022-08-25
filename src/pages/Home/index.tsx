@@ -10,6 +10,7 @@ import * as Photos from "../../services/photos";
 import { Photo } from "../../@types/Photo";
 
 import Header from "../../components/Header";
+import InvalidFormatModal from "../../components/InvalidFormatModal";
 import PhotoItem from "../../components/PhotoItem";
 import UploadForm from "../../components/UploadForm";
 
@@ -22,6 +23,8 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isInvalidFormatModalOpen, setIsInvalidFormatModalOpen] =
+    useState(false);
 
   useEffect(() => {
     getPhotos();
@@ -49,7 +52,7 @@ const Home = () => {
       setIsUploading(false);
 
       if (result instanceof Error) {
-        alert(`${result.message}`);
+        setIsInvalidFormatModalOpen(true);
       } else {
         let newPhotoList = [...photos];
 
@@ -112,6 +115,13 @@ const Home = () => {
             <div>Não há fotos cadastradas.</div>
           </ScreenWarning>
         )}
+
+        {
+          <InvalidFormatModal
+            isOpen={isInvalidFormatModalOpen}
+            onRequestClose={() => setIsInvalidFormatModalOpen(false)}
+          />
+        }
       </MainContent>
     </Container>
   );
