@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { FaWindowClose } from "react-icons/fa";
 import { IoMdCheckmark, IoMdClose } from "react-icons/io";
 
-interface DeleteModalProps {
+interface IDeleteModalProps {
   isOpen: boolean;
   photoName: string;
   onRequestClose: () => void;
@@ -15,7 +15,7 @@ const DeleteModal = ({
   photoName,
   onRequestClose,
   onDelete,
-}: DeleteModalProps) => {
+}: IDeleteModalProps) => {
   return (
     <Modal
       isOpen={isOpen}
