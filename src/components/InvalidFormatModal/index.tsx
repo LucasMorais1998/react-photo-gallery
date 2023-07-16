@@ -1,16 +1,13 @@
-import Modal from "react-modal";
+import Modal from 'react-modal';
 
-import { FaWindowClose } from "react-icons/fa";
+import { FaWindowClose } from 'react-icons/fa';
 
 interface IInvalidFormatModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-const InvalidFormatModal = ({
-  isOpen,
-  onRequestClose,
-}: IInvalidFormatModalProps) => {
+const InvalidFormatModal = ({ isOpen, onRequestClose }: IInvalidFormatModalProps) => {
   return (
     <Modal
       isOpen={isOpen}

@@ -1,9 +1,9 @@
-import { FormEvent } from "react";
+import { FormEvent } from 'react';
 
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { MdAddAPhoto } from "react-icons/md";
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { MdAddAPhoto } from 'react-icons/md';
 
-import { Container, LoadingContainer } from "./styles";
+import { Container, LoadingContainer } from './styles';
 
 interface IUploadFormProps {
   onSubmitForm: (e: FormEvent<HTMLFormElement>) => void;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.form`
   background-color: var(--gray-color);
@@ -9,8 +9,8 @@ export const Container = styled.form`
   margin-bottom: 1.875rem;
 
   label {
-    input[type="file"],
-    input[type="submit"] {
+    input[type='file'],
+    input[type='submit'] {
       background-color: var(--purple-color);
       border: 0;
       color: var(--white-color);
@@ -20,7 +20,7 @@ export const Container = styled.form`
     }
   }
 
-  label[id="labelInputImage"] {
+  label[id='labelInputImage'] {
     display: flex;
     align-items: center;
 
@@ -38,7 +38,7 @@ export const Container = styled.form`
       }
     }
 
-    input[type="file"] {
+    input[type='file'] {
       font-size: 0.625rem;
       width: 150px;
       overflow-x: hidden;
@@ -50,8 +50,8 @@ export const Container = styled.form`
     }
   }
 
-  label[id="labelInputSubmit"] {
-    input[type="submit"] {
+  label[id='labelInputSubmit'] {
+    input[type='submit'] {
       font-size: 0.938rem;
       cursor: pointer;
       padding: 0.4rem 1rem;

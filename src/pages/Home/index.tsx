@@ -1,30 +1,29 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from 'react';
 
-import Modal from "react-modal";
+import Modal from 'react-modal';
 
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { FiCameraOff } from "react-icons/fi";
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { FiCameraOff } from 'react-icons/fi';
 
-import * as Photos from "../../services/photos";
+import * as Photos from '../../services/photos';
 
-import { Photo } from "../../@types/Photo";
+import { Photo } from '../../@types/Photo';
 
-import Header from "../../components/Header";
-import InvalidFormatModal from "../../components/InvalidFormatModal";
-import PhotoItem from "../../components/PhotoItem";
-import UploadForm from "../../components/UploadForm";
+import Header from '../../components/Header';
+import InvalidFormatModal from '../../components/InvalidFormatModal';
+import PhotoItem from '../../components/PhotoItem';
+import UploadForm from '../../components/UploadForm';
 
-import { Container, MainContent, PhotoListGrid, ScreenWarning } from "./styles";
+import { Container, MainContent, PhotoListGrid, ScreenWarning } from './styles';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const Home = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isInvalidFormatModalOpen, setIsInvalidFormatModalOpen] =
-    useState(false);
+  const [isInvalidFormatModalOpen, setIsInvalidFormatModalOpen] = useState(false);
 
   useEffect(() => {
     getPhotos();
@@ -42,7 +41,7 @@ const Home = () => {
     e.preventDefault();
 
     const formDate = new FormData(e.currentTarget);
-    const file = formDate.get("image") as File;
+    const file = formDate.get('image') as File;
 
     if (file && file.size > 0) {
       setIsUploading(true);

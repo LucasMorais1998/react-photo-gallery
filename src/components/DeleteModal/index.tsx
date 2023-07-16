@@ -1,7 +1,7 @@
-import Modal from "react-modal";
+import Modal from 'react-modal';
 
-import { FaWindowClose } from "react-icons/fa";
-import { IoMdCheckmark, IoMdClose } from "react-icons/io";
+import { FaWindowClose } from 'react-icons/fa';
+import { IoMdCheckmark, IoMdClose } from 'react-icons/io';
 
 interface IDeleteModalProps {
   isOpen: boolean;
@@ -10,12 +10,7 @@ interface IDeleteModalProps {
   onDelete: (name: string) => void;
 }
 
-const DeleteModal = ({
-  isOpen,
-  photoName,
-  onRequestClose,
-  onDelete,
-}: IDeleteModalProps) => {
+const DeleteModal = ({ isOpen, photoName, onRequestClose, onDelete }: IDeleteModalProps) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -25,18 +20,10 @@ const DeleteModal = ({
     >
       <FaWindowClose onClick={onRequestClose} className="react-modal-close" />
 
-      <p className="react-modal-message">
-        Deseja deletar permanentemente a imagem?
-      </p>
+      <p className="react-modal-message">Deseja deletar permanentemente a imagem?</p>
       <div className="react-modal-buttons">
-        <IoMdCheckmark
-          className="react-modal-confirm-true"
-          onClick={() => onDelete(photoName)}
-        />
-        <IoMdClose
-          className="react-modal-confirm-false"
-          onClick={onRequestClose}
-        />
+        <IoMdCheckmark className="react-modal-confirm-true" onClick={() => onDelete(photoName)} />
+        <IoMdClose className="react-modal-confirm-false" onClick={onRequestClose} />
       </div>
     </Modal>
   );

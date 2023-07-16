@@ -1,8 +1,8 @@
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever } from 'react-icons/md';
 
-import DeleteModal from "../../components/DeleteModal";
+import DeleteModal from '../../components/DeleteModal';
 
-import { Container } from "./styles";
+import { Container } from './styles';
 
 interface IPhotoItemProps {
   name: string;
@@ -26,10 +26,7 @@ const PhotoItem = ({
       <img src={url} alt={name} />
       <div className="photo-item">
         <span>{name}</span>
-        <MdDeleteForever
-          className="photo-item-delete-icon"
-          onClick={onOpenDeleteModal}
-        />
+        <MdDeleteForever className="photo-item-delete-icon" onClick={onOpenDeleteModal} />
       </div>
 
       <DeleteModal
